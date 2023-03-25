@@ -2,7 +2,9 @@ package com.example.testopencommitgpt
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
@@ -10,11 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val clickMeBtn = findViewById<Button>(R.id.clickme)
-        val text = findViewById<TextView>(R.id.textView)
-        var count:Int = 0
+        val imageView = findViewById<ImageView>(R.id.testImg)
         clickMeBtn.setOnClickListener{
-            count++
-            text.text = count.toString()
+           if (imageView.visibility == View.VISIBLE)
+               imageView.visibility = View.INVISIBLE
+            else
+                imageView.visibility = View.VISIBLE
         }
     }
 }
